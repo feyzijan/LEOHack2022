@@ -1,6 +1,8 @@
 # LEOHack 2022
 This is a repository for all the code written for the LEOHack 2022 competition run by ICRS and ICSS. This contains both the code to run the actual satellites and a simulator.
 
+# Update self.challenge_no variable in team_controller.py team_init() function 
+
 # My solution to the Challenge:
 - Explanations to be written
 
