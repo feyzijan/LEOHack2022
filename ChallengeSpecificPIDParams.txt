@@ -1,0 +1,86 @@
+Challenge 1:
+-- Works great make slower
+Offsets:
+x_offset = -0.25 * math.sin(dead_sat_state.pose.theta)
+y_offset = 0.25 * math.cos(dead_sat_state.pose.theta)
+
+PID:
+        Kp = [8.0,  6.0,  8.0]
+        Kd = [0.1,0.1,0.1]
+        Ki = [0.01, 0.01,  0.01]
+        Kd = [0.0,  0.0,  0.0]
+        Kdy = [20.0,  20.0,  20.0]
+
+        K = [1.0,  1.0,  1.0]
+
+
+Challenge 2:
+
+	x_offset = 0.25 * math.sin(dead_sat_state.pose.theta) 
+        y_offset = 0.25 * math.cos(dead_sat_state.pose.theta) + 0.024
+        o_offset = math.pi
+        e_x = dead_sat_state.pose.x - satellite_state.pose.x - x_offset
+        e_y = dead_sat_state.pose.y - satellite_state.pose.y - y_offset # 0.25
+        if dead_sat_state.pose.theta < -2*math.pi:
+            dead_sat_state.pose.theta += 2* math.pi
+        elif dead_sat_state.pose.theta > 2*math.pi:
+            dead_sat_state.pose.theta -= 2* math.pi
+        e_o = dead_sat_state.pose.theta - satellite_state.pose.theta -o_offset
+        e_z = math.sqrt(e_x * e_x + (e_y + y_offset) * (e_y + y_offset))
+
+
+        Kp = [6.0,  10.5,  8.0]
+        Kd = [0.1, 0.1, 0.1]
+        Ki = [0.01, 0.03,  0.01]
+        Kd = [0.0,  0.0,  0.0]
+        Kdy = [20.0,  20.0,  20.0]
+
+
+
+
+Challenge 3:
+	x_offset = -0.25 * math.sin(dead_sat_state.pose.theta)
+        y_offset = 0.25 * math.cos(dead_sat_state.pose.theta) + 0.05
+        o_offset = math.pi
+        e_x = dead_sat_state.pose.x - satellite_state.pose.x - x_offset
+        e_y = dead_sat_state.pose.y - satellite_state.pose.y - y_offset # 0.25
+        e_o = dead_sat_state.pose.theta - satellite_state.pose.theta -o_offset
+        e_z = math.sqrt(e_x * e_x + (e_y + y_offset) * (e_y + y_offset))
+
+ 	
+        Kp = [0.8,  0.5,  5.0]
+        Kd = [0.1,0.1,0.1]
+        Ki = [0.003, 0.003,  0.2]
+        Kd = [0.05,  0.0,  0.0]
+        Kdy = [20.0,  20.0,  20.0]
+
+        K = [1.0,  1.0,  1.0]
+
+
+
+Challenge 4:
+- Problem with angle!!!!!! Error
+- Otherwise works well
+- Make slower
+Offsets:
+        x_offset = -0.25 * math.sin(dead_sat_state.pose.theta) - 0.03
+        y_offset = 0.25 * math.cos(dead_sat_state.pose.theta) + 0.05
+        o_offset = math.pi
+        e_x = dead_sat_state.pose.x - satellite_state.pose.x - x_offset
+        e_y = dead_sat_state.pose.y - satellite_state.pose.y - y_offset # 0.25
+        e_o = dead_sat_state.pose.theta - satellite_state.pose.theta -o_offset
+        e_z = math.sqrt(e_x * e_x + (e_y + y_offset) * (e_y + y_offset))
+
+PD Values:
+        Kp = [8.0,  6.0,  8.0]
+        Kd = [0.1,0.1,0.1]
+        Ki = [0.01, 0.01,  0.01]
+        Kd = [0.0,  0.0,  0.0]
+        Kdy = [20.0,  20.0,  20.0]
+
+        K = [1.0,  1.0,  1.0]
+
+
+
+## Unused complex velocity capping code
+
