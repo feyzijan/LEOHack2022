@@ -173,6 +173,7 @@ class SatComms:
         send_string = "ctl %.3f %.3f %.3f" % (cmd_vel.v_x, cmd_vel.v_y, cmd_vel.omega)
         send_string += "%.2f %.2f %.2f\n" % (servo_states.servo1, servo_states.servo2, servo_states.servo3)
         # send_string += " 0 0 0 \n"
+        
 
         print(send_string)
 

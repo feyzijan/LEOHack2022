@@ -178,6 +178,7 @@ class Sim():
             docked = self.check_for_docking()
             if(docked):
                 self.logger.info("Congrats! You have docked.")
+                break
             
             # Release thread lock
             self.sim_thread_lock.release()
