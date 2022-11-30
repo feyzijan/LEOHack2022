@@ -4,7 +4,7 @@ This contains both the code to run the actual satellites and a simulator.
 
 There are also design files for the physical challenge.
 
-# Update self.challenge_no variable in team_controller.py team_init() function 
+ *** Update self.challenge_no variable in team_controller.py team_init() function 
 
 
 # My solution to the Challenge:
